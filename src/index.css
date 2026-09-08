@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --font-display: var(--app-font-display);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 30 24% 7%;
+  --foreground: 40 24% 92%;
+  --border: 35 11% 25%;
+  --input: 35 11% 25%;
+  --ring: 38 52% 62%;
+  --card: 32 17% 11%;
+  --card-foreground: 40 24% 92%;
+  --card-border: 35 11% 25%;
+  --primary: 38 52% 62%;
+  --primary-foreground: 30 24% 7%;
+  --secondary: 22 58% 56%;
+  --secondary-foreground: 30 24% 7%;
+  --muted: 32 15% 15%;
+  --muted-foreground: 35 9% 64%;
+  --accent: 35 8% 68%;
+  --accent-foreground: 30 24% 7%;
+  --destructive: 10 58% 55%;
+  --destructive-foreground: 40 24% 92%;
+  --sidebar: 30 24% 7%;
+  --sidebar-foreground: 40 24% 92%;
+  --sidebar-border: 35 11% 25%;
+  --sidebar-primary: 38 52% 62%;
+  --sidebar-primary-foreground: 30 24% 7%;
+  --sidebar-accent: 32 15% 15%;
+  --sidebar-accent-foreground: 40 24% 92%;
+  --sidebar-ring: 38 52% 62%;
+  --app-font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --app-font-display: 'Instrument Serif', Georgia, serif;
+  --app-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --radius: 0.5rem;
+  --tracking-normal: 0em;
+}
+
+.dark {
+  --background: 30 24% 7%;
+  --foreground: 40 24% 92%;
+  --border: 35 11% 25%;
+  --input: 35 11% 25%;
+  --ring: 38 52% 62%;
+  --card: 32 17% 11%;
+  --card-foreground: 40 24% 92%;
+  --card-border: 35 11% 25%;
+  --primary: 38 52% 62%;
+  --primary-foreground: 30 24% 7%;
+  --secondary: 22 58% 56%;
+  --secondary-foreground: 30 24% 7%;
+  --muted: 32 15% 15%;
+  --muted-foreground: 35 9% 64%;
+  --accent: 35 8% 68%;
+  --accent-foreground: 30 24% 7%;
+  --destructive: 10 58% 55%;
+  --destructive-foreground: 40 24% 92%;
+  --sidebar: 30 24% 7%;
+  --sidebar-foreground: 40 24% 92%;
+  --sidebar-border: 35 11% 25%;
+  --sidebar-primary: 38 52% 62%;
+  --sidebar-primary-foreground: 30 24% 7%;
+  --sidebar-accent: 32 15% 15%;
+  --sidebar-accent-foreground: 40 24% 92%;
+  --sidebar-ring: 38 52% 62%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; background: hsl(var(--background)); }
+  body { @apply font-sans antialiased bg-background text-foreground; margin: 0; font-size: 1.0625rem; }
+  ::selection { background: hsl(var(--primary) / 0.25); color: hsl(var(--foreground)); }
+}
+
+@layer utilities {
+  .font-mono { font-family: var(--app-font-mono); }
+  .text-balance { text-wrap: balance; }
+}
+
+.portfolio-shell {
+  min-height: 100dvh;
+  background: hsl(var(--background));
+  overflow-x: hidden;
+}
+.portfolio-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.site-grid {
+  background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M72 0H0V72' fill='none' stroke='%23e9e0d1' stroke-opacity='.035'/%3E%3C/svg%3E");
+  background-size: 72px 72px;
+}
+.reveal { animation: reveal 0.8s cubic-bezier(.2,.8,.2,1) both; }
+.reveal-delay-1 { animation-delay: .1s; }
+.reveal-delay-2 { animation-delay: .2s; }
+.reveal-delay-3 { animation-delay: .3s; }
+.reveal-delay-4 { animation-delay: .4s; }
+@keyframes reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse-dot { 0%, 100% { opacity: .35; transform: scale(.85); } 50% { opacity: 1; transform: scale(1); } }
+.pulse-dot { animation: pulse-dot 2.1s ease-in-out infinite; }
+.card-lift { transition: transform .25s ease, border-color .25s ease, background-color .25s ease; }
+.card-lift:hover { transform: translateY(-4px); border-color: hsl(var(--primary) / .45); background-color: hsl(32 17% 14%); }
+.link-underline { border-bottom: 1px solid transparent; transition: border-color .25s ease; }
+.link-underline:hover { border-color: currentColor; }
+.portfolio-shell h1 { font-family: var(--app-font-display); font-weight: 400; }
+.focus-ring:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
